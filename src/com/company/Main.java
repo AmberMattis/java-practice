@@ -6,9 +6,6 @@ public class Main {
         System.out.println("Hello, World");
     }
 
-
-
-
     //Coding Bat Exercises
 
     /**
@@ -157,14 +154,4 @@ public class Main {
                (b>=13 && b<=19) ||
                (c>=13 && c<=19);
     }
-
-
-
-
-
-
-
-
-
-
 }
