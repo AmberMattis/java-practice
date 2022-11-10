@@ -382,6 +382,150 @@ public class Main {
 
         return num;
     }
+
+
+
+    /**
+     *
+     * Given 2 int values, return true if they are both in the range 30..40 inclusive,
+     * or they are both in the range 40..50 inclusive.
+     */
+
+    //App Solution
+    public boolean in3050(int a, int b) {
+        if (a >= 30 && a <= 40 && b >= 30 && b <= 40) {
+            return true;
+        }
+        if (a >= 40 && a <= 50 && b >= 40 && b <= 50) {
+            return true;
+        }
+        return false;
+        // This could be written as one very large expression,
+        // connecting the two main parts with ||
+    }
+
+    //My version of solution
+    public boolean in3050MyLogic(int a, int b) {
+        boolean inRange3040 = ((a >= 30 && a <= 40) && (b >= 30 && b <= 40));
+        boolean inRange4050 = ((a >= 40 && a <= 50) && (b >= 40 && b <= 50));
+
+        return(inRange3040 || inRange4050);
+
+    }
+
+
+
+    /**
+     * Given 2 positive int values, return the larger value that is in the range
+     * 10..20 inclusive, or return 0 if neither is in that range.
+     */
+
+    //App Solution
+    public int max1020(int a, int b) {
+        // First make it so the bigger value is in a
+        if (b > a) {
+            int temp = a;
+            a = b;
+            b = temp;
+        }
+
+        // Knowing a is bigger, just check a first
+        if (a >= 10 && a <= 20) return a;
+        if (b >= 10 && b <= 20) return b;
+        return 0;
+    }
+
+    //My version of solution
+    public int max1020MyLogic(int a, int b) {
+        int result = 0;
+        boolean aInRange = (a >= 10 && a <= 20);
+        boolean bInRange = (b >= 10 && b <= 20);
+        boolean noneInRange = (a < 10 && a > 20) && (b < 10 && b > 20);
+        boolean bothInRange = (a >= 10 && a <= 20) && (b >= 10 && b <= 20);
+
+        if(bothInRange && a > b){
+            result = a;
+        }
+        if(bothInRange && b > a){
+            result = b;
+        }
+        if(aInRange && !bInRange){
+            result = a;
+        }
+        if(bInRange && !aInRange){
+            result = b;
+        }
+        if(noneInRange){
+            result = result;
+        }
+
+        return result;
+    }
+
+
+
+    /**
+     * Return true if the given string contains between 1 and 3 'e' chars.
+     */
+
+    //App solution
+    public boolean stringE(String str) {
+        int count = 0;
+
+        for (int i=0; i<str.length(); i++) {
+            if (str.charAt(i) == 'e') count++;
+            // alternately: str.substring(i, i+1).equals("e")
+        }
+
+        return (count >= 1 && count <= 3);
+    }
+
+    //My version of solution
+    public boolean stringEMyLogic(String str) {
+        int count = 0;
+        for(int i = 0; i < str.length(); i++){
+            if(str.charAt(i) == 'e'){
+                count++;
+            }
+        }
+        return (count >= 1 && count <= 3);
+    }
+
+
+
+    /**
+     * Given two non-negative int values, return true if
+     * they have the same last digit, such as with 27 and 57.
+     * Note that the % "mod" operator computes remainders, so 17 % 10 is 7.
+     */
+
+    //App solution
+    public boolean lastDigit(int a, int b) {
+        // True if the last digits are the same
+        return(a % 10 == b % 10);
+    }
+
+    //My version of solution
+    public boolean lastDigitMyLogic(int a, int b) {
+        int modA = a % 10;
+        int modB = b % 10;
+        boolean result = false;
+
+        if(modA == modB){
+            result = true;
+        }
+        return result;
+    }
+
+
+
+
+
+
+
+
+
+
 }
 
 
