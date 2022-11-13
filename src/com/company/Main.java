@@ -181,7 +181,6 @@ public class Main {
     }
 
 
-
     /**
      * Given a string, if the string "del" appears starting at index 1, return a string where that
      * "del" has been deleted. Otherwise, return the string unchanged.
@@ -206,7 +205,6 @@ public class Main {
 
         return str;
     }
-
 
 
     /**
@@ -239,7 +237,7 @@ public class Main {
 
         boolean inTheMix = false;
 
-        if(str.length() >= 3 && str.substring(1,3).equals("ix")){
+        if (str.length() >= 3 && str.substring(1, 3).equals("ix")) {
             inTheMix = true;
         }
 
@@ -258,11 +256,11 @@ public class Main {
     public String startOz(String str) {
         String result = "";
 
-        if (str.length() >= 1 && str.charAt(0)=='o') {
+        if (str.length() >= 1 && str.charAt(0) == 'o') {
             result = result + str.charAt(0);
         }
 
-        if (str.length() >= 2 && str.charAt(1)=='z') {
+        if (str.length() >= 2 && str.charAt(1) == 'z') {
             result = result + str.charAt(1);
         }
 
@@ -275,16 +273,16 @@ public class Main {
         boolean longEnough = str.length() >= 2;
         String answer = "";
 
-        if(str.substring(0,1).equals("o")){
-            answer = str.substring(0,1);
+        if (str.substring(0, 1).equals("o")) {
+            answer = str.substring(0, 1);
         }
 
-        if(longEnough && str.substring(1,2).equals("z")){
-            answer = str.substring(1,2);
+        if (longEnough && str.substring(1, 2).equals("z")) {
+            answer = str.substring(1, 2);
         }
 
-        if(longEnough && str.substring(0,2).equals("oz")){
-            answer = str.substring(0,2);
+        if (longEnough && str.substring(0, 2).equals("oz")) {
+            answer = str.substring(0, 2);
         }
 
         return answer;
@@ -325,18 +323,17 @@ public class Main {
         boolean largeC = (c > b && c > a);
         int answer = 0;
 
-        if(largeA){
+        if (largeA) {
             answer = a;
         }
-        if(largeB){
+        if (largeB) {
             answer = b;
         }
-        if(largeC){
+        if (largeC) {
             answer = c;
         }
         return answer;
     }
-
 
 
     /**
@@ -368,15 +365,15 @@ public class Main {
         int aDiff = Math.abs(a - 10);
         int bDiff = Math.abs(b - 10);
 
-        if(a == b){
+        if (a == b) {
             num = num;
         }
 
-        if(aDiff > bDiff){
+        if (aDiff > bDiff) {
             num = b;
         }
 
-        if(aDiff < bDiff){
+        if (aDiff < bDiff) {
             num = a;
         }
 
@@ -384,9 +381,7 @@ public class Main {
     }
 
 
-
     /**
-     *
      * Given 2 int values, return true if they are both in the range 30..40 inclusive,
      * or they are both in the range 40..50 inclusive.
      */
@@ -409,10 +404,9 @@ public class Main {
         boolean inRange3040 = ((a >= 30 && a <= 40) && (b >= 30 && b <= 40));
         boolean inRange4050 = ((a >= 40 && a <= 50) && (b >= 40 && b <= 50));
 
-        return(inRange3040 || inRange4050);
+        return (inRange3040 || inRange4050);
 
     }
-
 
 
     /**
@@ -443,25 +437,24 @@ public class Main {
         boolean noneInRange = (a < 10 && a > 20) && (b < 10 && b > 20);
         boolean bothInRange = (a >= 10 && a <= 20) && (b >= 10 && b <= 20);
 
-        if(bothInRange && a > b){
+        if (bothInRange && a > b) {
             result = a;
         }
-        if(bothInRange && b > a){
+        if (bothInRange && b > a) {
             result = b;
         }
-        if(aInRange && !bInRange){
+        if (aInRange && !bInRange) {
             result = a;
         }
-        if(bInRange && !aInRange){
+        if (bInRange && !aInRange) {
             result = b;
         }
-        if(noneInRange){
+        if (noneInRange) {
             result = result;
         }
 
         return result;
     }
-
 
 
     /**
@@ -472,7 +465,7 @@ public class Main {
     public boolean stringE(String str) {
         int count = 0;
 
-        for (int i=0; i<str.length(); i++) {
+        for (int i = 0; i < str.length(); i++) {
             if (str.charAt(i) == 'e') count++;
             // alternately: str.substring(i, i+1).equals("e")
         }
@@ -483,14 +476,13 @@ public class Main {
     //My version of solution
     public boolean stringEMyLogic(String str) {
         int count = 0;
-        for(int i = 0; i < str.length(); i++){
-            if(str.charAt(i) == 'e'){
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == 'e') {
                 count++;
             }
         }
         return (count >= 1 && count <= 3);
     }
-
 
 
     /**
@@ -502,7 +494,7 @@ public class Main {
     //App solution
     public boolean lastDigit(int a, int b) {
         // True if the last digits are the same
-        return(a % 10 == b % 10);
+        return (a % 10 == b % 10);
     }
 
     //My version of solution
@@ -511,22 +503,40 @@ public class Main {
         int modB = b % 10;
         boolean result = false;
 
-        if(modA == modB){
+        if (modA == modB) {
             result = true;
         }
         return result;
     }
 
+    /**
+     * Given a string, if the string "del" appears starting at index 1,
+     * return a string where that "del" has been deleted. Otherwise, return
+     * the string unchanged.
+     */
 
+    //App version
+    public String delDel2(String str) {
+        if (str.length() >= 4 && str.substring(1, 4).equals("del")) {
+            // First char + rest of string starting at 4
+            return str.substring(0, 1) + str.substring(4);
+        }
+        // Otherwise return the original string.
+        return str;
+    }
 
+    //My version of solution
+    public String delDel2MyLogic(String str) {
+        boolean del = str.length() >= 4 && str.substring(1, 4).equals("del");
+        String result = str;
 
-
-
-
-
-
-
+        if (del) {
+            result = str.substring(0, 1) + str.substring(4);
+        }
+        return result;
+    }
 }
+
 
 
 
