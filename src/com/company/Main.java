@@ -535,6 +535,141 @@ public class Main {
         }
         return result;
     }
+
+    /**
+     * Given a string, return a new string where the last 3 chars are now in upper case.
+     * If the string has less than 3 chars, uppercase whatever is there. Note that str.toUpperCase()
+     * returns the uppercase version of a string.
+     */
+
+    //App Version
+    public String endUp(String str) {
+        if (str.length() <= 3) return str.toUpperCase();
+        int cut = str.length() - 3;
+        String front = str.substring(0, cut);
+        String back  = str.substring(cut);  // this takes from cut to the end
+
+        return front + back.toUpperCase();
+    }
+
+    //My version of solution
+    public String endUpMyLogic(String str) {
+
+        if(str.length() < 3){
+            return str.toUpperCase();
+        }
+
+        //Logic for targeting the last three charactures in a string
+        int cut = str.length() - 3;
+        //Logic for targetting all but the last 3 charatures in a string;
+        String front = str.substring(0, cut);
+        //Logic for grabbing the last three charatures in a string.
+        String back  = str.substring(cut);
+        //Logic for grabbing the string with the last three charactures capatalized
+        String capsEnd = front + back.toUpperCase();
+
+        return capsEnd;
+    }
+
+    /**
+     *
+     * Given a non-empty string and an int N, return the string made starting with char 0,
+     * and then every Nth char of the string. So if N is 3, use char 0, 3, 6, ... and so on. N is 1 or more.
+     */
+
+    //App Version
+    public String everyNth(String str, int n) {
+        String result = "";
+
+        // Look at every nth char
+        for (int i=0; i<str.length(); i = i + n) {
+            result = result + str.charAt(i);
+        }
+        return result;
+    }
+
+    //My version of solution
+    public String everyNthMyLogic(String str, int n) {
+        //Set the string variable to an empty string
+        String result = "";
+
+        //Iterate over the string based on the
+        //int n and add the characture (i) to the result string
+        for(int i = 0; i < str.length(); i = i+n){
+            result = result + str.charAt(i);
+        }
+
+        //Return the result string
+        return result;
+    }
+
+    /**
+     *  Given a string and a non-negative int n, return a larger string that
+     *  is n copies of the original string.
+     */
+
+    //App Version
+    public String stringTimes(String str, int n) {
+        String result = "";
+        for (int i=0; i<n; i++) {
+            result = result + str;  // could use += here
+        }
+        return result;
+    }
+
+    //My version of solution
+    public String stringTimesMyLogic(String str, int n) {
+        String result = "";
+
+        for(int i = 0; i < n; i++){
+            result = result + str;
+        }
+
+        return result;
+    }
+
+
+    /**Given a string and a non-negative int n, we'll say that the front of the string is the
+     * first 3 chars, or whatever is there if the string is
+     * less than length 3. Return n copies of the front;
+     */
+
+    //App Solution
+    public String frontTimes(String str, int n) {
+        int frontLen = 3;
+        if (frontLen > str.length()) {
+            frontLen = str.length();
+        }
+        String front = str.substring(0, frontLen);
+
+        String result = "";
+        for (int i=0; i<n; i++) {
+            result = result + front;
+        }
+        return result;
+    }
+
+    //My version of solution
+    public String frontTimesMyLogic(String str, int n) {
+        String front = str.substring(0,3);
+        String result = "";
+
+        for(int i = 0; i < n; i++){
+            if(str.length() >= 3){
+                result = result + front;
+            }
+
+        }
+        return result;
+    }
+
+
+
+
+
+
+
+
 }
 
 
