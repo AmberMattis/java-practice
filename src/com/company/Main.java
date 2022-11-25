@@ -664,6 +664,57 @@ public class Main {
     }
 
 
+    /**
+     * Count the number of "xx" in the given string. We'll say that overlapping
+     * is allowed, so "xxx" contains 2 "xx"
+     */
+
+    //App Solution
+    int countXX(String str) {
+        int count = 0;
+        for (int i = 0; i < str.length()-1; i++) {
+            if (str.substring(i, i+2).equals("xx")) count++;
+        }
+        return count;
+    }
+
+    // Solution notes: the loop is shortened to end at str.length()-1
+    // so we can pull out a length 2 substring without going out of bounds.
+    // Remember to use equals() to compare strings, not ==.
+
+    //My version of solution
+    int countXXMyLogic(String str) {
+        int pairs = 0;
+
+        for(int i = 0; i<str.length()-1; i++){
+            if(str.substring(i, i+2).equals("xx")){
+                pairs = pairs + 1;
+            }
+        }
+        return pairs;
+    }
+
+    /**
+     * Given a string, return true if the first instance of "x"
+     * in the string is immediately followed by another "x".
+     */
+
+    //App Solution
+    boolean doubleX(String str) {
+        int i = str.indexOf("x");
+        if (i == -1) return false; // no "x" at all
+
+        // Is char at i+1 also an "x"?
+        if (i+1 >= str.length()) return false; // check i+1 in bounds?
+        return str.substring(i+1, i+2).equals("x");
+
+        // Another approach -- .startsWith() simplifies the logic
+        // String x = str.substring(i);
+        // return x.startsWith("xx");
+    }
+
+
+
 
 
 
